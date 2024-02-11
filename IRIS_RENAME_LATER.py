@@ -1,14 +1,16 @@
 import socket
+import os
 
 class IrisSub:
-    def __init__(self, path_to_image_folder='/images'):
+    def __init__(self, path_to_image_folder='images'):
         self.path_to_image_folder = path_to_image_folder
 
     def take_picture(self):
         """
         send a request to IRIS to take a picture and save it to the image folder
         """
-        pass
+        if not os.path.exists(self.path_to_image_folder):
+            os.mkdirs(self.path_to_image_folder)
 
     def get_picture(self, picture_name=None):
         """
